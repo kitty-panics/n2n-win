@@ -1,9 +1,11 @@
 @echo off
 
 rem
-rem Silent installation
+rem Silent installation (Win XP/Vista/7/8/10)
 rem
 
-rem Install
-rem Windows XP/Vista/7/8/10
-..\tap\tapinstall.exe install ..\tap\OemWin2k.inf tap0901
+if "%PROCESSOR_ARCHITECTURE%"=="x86" (
+    ..\tap\tap-win32\tapinstall.exe install ..\tap\tap-win32\OemWin2k.inf tap0901
+) else (
+    ..\tap\tap-win64\tapinstall.exe install ..\tap\tap-win64\OemWin2k.inf tap0901
+)
